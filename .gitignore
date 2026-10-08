@@ -1,0 +1,10 @@
+/_site/
+/.quarto/
+/_freeze/
+.DS_Store
+__pycache__/
+.venv/
+.env
+.env.*
+!.env.example
+*.log

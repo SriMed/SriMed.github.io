@@ -1,0 +1,8 @@
+---
+title: "About"
+toc: false
+---
+
+I'm Srilakshmi Medarametla. This site brings together my technical writing and projects.
+
+You can find my code on [GitHub](https://github.com/SriMed).

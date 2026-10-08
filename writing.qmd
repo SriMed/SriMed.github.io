@@ -1,0 +1,13 @@
+---
+title: "Writing"
+toc: false
+listing:
+  contents: posts
+  type: default
+  sort: "date desc"
+  categories: true
+  fields: [date, title, description, categories]
+  feed: true
+---
+
+Research notes and technical essays will appear here as I publish them.

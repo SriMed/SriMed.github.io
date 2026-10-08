@@ -1,0 +1,23 @@
+/*-- scss:defaults --*/
+$body-bg: #ffffff;
+$body-color: #243547;
+$primary: #245fc2;
+$link-color: #245fc2;
+$navbar-bg: #eef3fb;
+$navbar-fg: #243547;
+$font-family-sans-serif: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+$headings-font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+$font-size-base: 1.075rem;
+$line-height-base: 1.7;
+
+/*-- scss:rules --*/
+#quarto-content { max-width: 1120px; }
+main { max-width: 760px; }
+h1 { font-weight: 650; letter-spacing: -0.035em; }
+h2, h3 { font-weight: 600; }
+.intro { font-size: clamp(1.3rem, 3.3vw, 1.85rem); line-height: 1.4; max-width: 36ch; margin: 1.25rem 0 1.75rem; }
+.navbar { padding-top: 1rem; padding-bottom: 1rem; }
+.navbar-brand { font-size: 1rem; font-weight: 600; white-space: normal; }
+main a { text-underline-offset: 0.2em; }
+a:focus-visible, button:focus-visible { outline: 3px solid #245fc2; outline-offset: 4px; }
+@media (max-width: 575px) { h1 { font-size: 2rem; } .intro { margin-top: 1rem; } }

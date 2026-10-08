@@ -1,0 +1,41 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - "*.qmd"
+    - "posts/**/*.qmd"
+
+website:
+  title: "Srilakshmi Medarametla"
+  description: "Research notes on AI evaluation, language, and reliable systems."
+  site-url: https://srimed.github.io
+  navbar:
+    left:
+      - href: writing.qmd
+        text: Writing
+      - href: about.qmd
+        text: About
+    right:
+      - href: https://github.com/SriMed
+        text: GitHub
+  page-footer:
+    left: "Srilakshmi Medarametla"
+    right:
+      - text: GitHub
+        href: https://github.com/SriMed
+  search: true
+  draft-mode: gone
+
+format:
+  html:
+    theme:
+      - cosmo
+      - theme.scss
+    toc: true
+    code-copy: true
+    link-external-newwindow: true
+
+execute:
+  enabled: false
+
+lang: en

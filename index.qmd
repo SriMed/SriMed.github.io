@@ -1,0 +1,18 @@
+---
+title: "Srilakshmi Medarametla"
+toc: false
+---
+
+::: {.intro}
+Research notes on AI evaluation, language, and reliable systems.
+:::
+
+This is a home for technical writing, experiments, and questions worth working through.
+
+[Read the writing](writing.qmd) or [find me on GitHub](https://github.com/SriMed).
+
+## Selected work
+
+### [RAG Forensics](https://github.com/SriMed/rag-forensics)
+
+An inspectable diagnostic record for investigating why a RAG answer may have gone wrong.
