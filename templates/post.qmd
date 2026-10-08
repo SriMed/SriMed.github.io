@@ -1,0 +1,19 @@
+---
+title: "Your post title"
+description: "One sentence explaining the question this post explores."
+date: "2026-10-07"
+categories: [evaluation]
+draft: true
+---
+
+## The question
+
+What prompted this investigation? State the question and why it matters.
+
+## The evidence
+
+Describe the setup, observations, and limitations. Link to sources beside the claims they support.
+
+## What I take from it
+
+Explain what changed your understanding and what remains uncertain.
