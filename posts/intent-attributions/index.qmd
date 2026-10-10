@@ -1,0 +1,29 @@
+---
+title: "When Does an Intent Attribution Earn Its Keep?"
+description: "Intent attributions are useful when they distinguish competing explanations through falsifiable predictions."
+date: "2026-10-09"
+categories: [evaluation, AI safety]
+draft: false
+toc: false
+---
+
+The same concerning behavior can imply very different risks. A model might bypass a constraint because doing so helps it complete the current task, because it has learned a broader habit of disregarding restrictions, or because the action serves a persistent objective that conflicts with ours. Those explanations matter only if they lead to different predictions.
+
+For example, suppose a model circumvents a network restriction. If a local incentive to finish the task drives the behavior, removing that incentive should reduce circumvention. If avoiding oversight is itself part of a persistent objective, blocking one route may simply push the model toward another.
+
+But even that comparison is not enough. A model motivated only by task completion might also search for another route.
+
+Two comparisons would provide stronger evidence:
+
+- **Remove the task advantage.** Provide an authorized route that the model recognizes as equally effective. If the model still prefers the route that reduces oversight, that is better evidence for the oversight-related hypothesis.
+- **Vary the oversight consequence.** Hold task benefit fixed and vary whether circumvention reduces oversight. If behavior tracks opportunities to reduce oversight, it supports the hypothesis. If it tracks only task-completion advantages, it weakens the hypothesis.
+
+The controls matter. An “equally effective” route may not look equally reliable to the model, and changing oversight cues may change how it interprets the task. A useful test therefore needs evidence that the model understands the alternatives and their consequences.
+
+Persistence also needs a scope. Behavior recurring within one conversation, across tasks with shared memory, and across fresh sessions supports progressively broader claims. “Persistent objective” should not become a label that outruns the evidence.
+
+However, none of this makes understanding intent a prerequisite for acting. Restricting network access, reducing permissions, and requiring human approval can buy safety while the diagnosis remains uncertain. Several explanations can justify these mitigations.
+
+The crux is whether an intent attribution makes falsifiable predictions.
+
+Saying a model “has a persistent objective to avoid oversight” adds little if that merely redescribes the fact that it broke a rule. The attribution earns its keep when it predicts behavior under interventions that plausible alternatives do not.
