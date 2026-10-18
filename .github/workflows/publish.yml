@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    - cron: '0 8 * * *'
+      timezone: America/New_York
 
 permissions:
   contents: read
@@ -18,21 +21,43 @@ jobs:
     steps:
       - name: Check out source
         uses: actions/checkout@v6
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install publishing dependencies
+        run: python -m pip install -r requirements-build.txt
+      - name: Test publishing rules
+        run: python -m unittest discover -s tests -p test_publication.py
+      - name: Check for essays due
+        id: publication
+        if: github.event_name == 'schedule'
+        run: python scripts/publication.py check
       - name: Configure Pages
+        if: github.event_name != 'schedule' || steps.publication.outputs.needed == 'true'
         uses: actions/configure-pages@v5
       - name: Install Quarto
+        if: github.event_name != 'schedule' || steps.publication.outputs.needed == 'true'
         uses: quarto-dev/quarto-actions/setup@v2
         with:
           version: "1.10.19"
+      - name: Test rendered publication visibility
+        if: github.event_name != 'schedule' || steps.publication.outputs.needed == 'true'
+        run: python -m unittest discover -s tests -p test_render.py
       - name: Render website
-        run: quarto render
+        if: github.event_name != 'schedule' || steps.publication.outputs.needed == 'true'
+        run: python scripts/publication.py render
       - name: Upload website
+        if: github.event_name != 'schedule' || steps.publication.outputs.needed == 'true'
         uses: actions/upload-pages-artifact@v4
         with:
           path: _site
+    outputs:
+      publish: ${{ github.event_name != 'schedule' || steps.publication.outputs.needed == 'true' }}
 
   deploy:
     needs: build
+    if: needs.build.outputs.publish == 'true'
     runs-on: ubuntu-latest
     permissions:
       pages: write

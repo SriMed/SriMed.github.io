@@ -10,3 +10,4 @@ __pycache__/
 *.log
 
 **/*.quarto_ipynb
+/_quarto-publication.yml

@@ -3,7 +3,7 @@ title: "Your post title"
 description: "One sentence explaining the question this post explores."
 date: "2026-10-07"
 categories: [evaluation]
-draft: true
+draft: true # Set false when ready; future dates publish at 8 a.m. New York time.
 ---
 
 ## The question
