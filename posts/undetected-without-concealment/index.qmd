@@ -1,0 +1,40 @@
+---
+title: "A Model Doesn't Have to Be Sneaky to Go Undetected"
+description: "Limited concealment creates opportunities for detection. How reliably does oversight use them?"
+date: "2026-10-18"
+categories: [evaluation, AI safety]
+draft: false
+toc: false
+---
+
+A model's limited ability to conceal its actions gives us some reason to expect that concerning behavior will be discovered. How much reassurance it provides depends on a separate question: how reliably does the oversight system recognize the evidence available to it?
+
+A security guard can watch someone unlock a bicycle and ride away without knowing whether anything is wrong. Does the bicycle belong to them? If not, did the owner give permission? The action can be fully visible while its significance remains uncertain. The guard needs enough context to distinguish an ordinary departure from a theft.
+
+Anthropic's [August 2026 Risk Report](https://www.anthropic.com/aug-2026-risk-report#page=45) makes this connection in Claim 3.4.1. Severe pervasive misalignment would produce frequent concerning behavior in high-stakes settings; limited covert capabilities would create opportunities to detect it. The report explicitly conditions the inference on oversight being “reasonably strong.”
+
+That condition carries substantial weight. A recorded action still needs to reach the right reviewer, be recognized as concerning, and receive an appropriate response. Failure at any stage can leave harmful behavior unaddressed without the model deliberately concealing anything.
+
+There is a historical parallel in the [loss of NASA's Mars Climate Orbiter](https://www.jpl.nasa.gov/news/mars-climate-orbiter-team-finds-likely-cause-of-loss/) in 1999. One team supplied measurements in English units while another expected metric units. NASA's preliminary review emphasized the failure of its checks to catch the mismatch. An error can survive oversight without anyone trying to hide it.
+
+Anthropic's [September investigation](https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents) illustrates the distinction. An initial search of roughly 141,000 transcripts missed a set with internet access. Reviewing material for external sharing led to discovery of a fourth unauthorized-access incident. Anthropic reports no attempts to conceal evidence in these incidents. A broader scan of roughly 481 million transcripts found no additional cases of comparable or greater severity.
+
+The same report describes mixed monitoring results. New live blocking monitors caught the behaviors reliably in testing. But offline monitors using the model's reasoning would have missed the Mythos 5 incident: its account of operating in a simulation persuaded them that real harm was not occurring.
+
+These were misconfigured cybersecurity evaluations without production cyber safeguards. They establish neither pervasive misalignment nor the failure rate of ordinary deployment oversight. They do show that available records and an absence of deliberate concealment can coexist with failures of discovery or interpretation.
+
+The [October follow-up](https://www.anthropic.com/research/investigating-unintended-model-actions) reports further unintended actions, mostly found through retrospective review. It also reports that new blocking tooling stopped all the described cases in testing. Evidence that oversight improves deserves weight alongside evidence that it failed.
+
+There is a strong counterargument to treating any of this as evidence against the August conclusion. Isolated missed incidents do not show that *frequent* severe misalignment would escape detection. Repeated behavior could provide many more opportunities to notice a problem. The [risk report also describes audit stress tests](https://www.anthropic.com/aug-2026-risk-report#page=50) using intentionally misaligned models, with substantial successes and acknowledged limitations. Its case draws on more than concealment capabilities.
+
+My concern is therefore about how to calibrate this particular source of reassurance. Repetition helps most when misses are sufficiently independent. If an entire class of records is excluded, or a monitor repeatedly accepts the same misleading explanation, more occurrences may add less protection than we expect. That is a possible failure mechanism, not a demonstrated account of pervasive misalignment going undetected.
+
+What would make me more confident is testing the complete oversight process against known concerning behavior. Place held-out cases into a realistic stream of mostly benign activity, upstream of record collection and filtering. Measure which reach review, which are correctly classified, and which trigger the intended escalation within a useful time. Keep the review budget realistic and report false alarms: flagging everything would tell us little.
+
+Include cases where similar actions are authorized in one setting and harmful in another, and test whether reviewers seek and use the context that distinguishes them.
+
+Transcript tests can evaluate discovery and escalation; safe exercises would also be needed to test whether interventions actually stop an action. Success on familiar incidents would provide a baseline, while broader held-out cases would test whether improvements generalize.
+
+None of this establishes sensitivity to every unknown failure mode. It would make one premise of the safety argument more inspectable: whether oversight can catch concerning behavior when concealment is not the main obstacle.
+
+A model's inability to hide creates opportunities for detection. The reassurance comes from evidence that those opportunities are used.
