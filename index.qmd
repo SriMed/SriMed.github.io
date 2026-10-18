@@ -16,3 +16,7 @@ This is a home for technical writing, experiments, and questions worth working t
 ### [RAG Forensics](https://github.com/SriMed/rag-forensics)
 
 An inspectable diagnostic record for investigating why a RAG answer may have gone wrong.
+
+### [Measuring Emergent Misalignment](https://github.com/SriMed/em-signal-validity)
+
+Comparing a base model with an emergently misaligned fine-tune to investigate what differences in behavior and internal activations can tell us.
