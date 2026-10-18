@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: _site
+  resources:
+    - resume.pdf
   render:
     - "*.qmd"
     - "posts/**/*.qmd"
@@ -13,11 +15,13 @@ website:
     left:
       - href: writing.qmd
         text: Writing
-      - href: about.qmd
-        text: About
-    right:
+      - href: resume.pdf
+        text: Résumé
       - href: https://github.com/SriMed
         text: GitHub
+    right:
+      - href: about.qmd
+        text: About
   page-footer:
     left: "Srilakshmi Medarametla"
     right:
