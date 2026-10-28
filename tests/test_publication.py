@@ -64,6 +64,18 @@ class PublicationTests(unittest.TestCase):
         with patch("scripts.publication.urllib.request.urlopen", return_value=io.BytesIO(b'{"posts": []}')):
             self.assertTrue(needs_publication(state, "https://example.com/state.json"))
 
+    def test_reading_changes_trigger_update_without_new_essay(self):
+        now = datetime(2026, 10, 27, 8, tzinfo=TIMEZONE)
+        include = self.root / "_includes" / "reading.qmd"
+        include.parent.mkdir()
+        include.write_text("First selection")
+        before = publication_plan(self.root, now)[0]
+        self.assertEqual(publication_plan(self.root, now)[0], before)
+        include.write_text("Changed selection")
+        after = publication_plan(self.root, now)[0]
+        self.assertNotEqual(before, after)
+        self.assertEqual(before["posts"], after["posts"])
+
     def test_missing_manifest_bootstraps_but_server_failure_fails(self):
         for code in (404, 503):
             with self.subTest(code=code), patch(

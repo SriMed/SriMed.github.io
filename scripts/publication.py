@@ -1,7 +1,8 @@
-"""Gate production posts by date and avoid unchanged scheduled deployments."""
+"""Gate production posts by date and deploy when posts or readings change."""
 
 import argparse
 from datetime import date, datetime, time
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -54,7 +55,11 @@ def publication_plan(root, now):
             raise ValueError(f"{path}: date must be YYYY-MM-DD") from error
         release = datetime.combine(day, time(8), TIMEZONE)
         (published if now >= release else hidden).append(relative)
-    return {"posts": published}, hidden
+    state = {"posts": published}
+    reading = root / "_includes" / "reading.qmd"
+    if reading.exists():
+        state["reading"] = hashlib.sha256(reading.read_bytes()).hexdigest()
+    return state, hidden
 
 
 def needs_publication(state, url):
@@ -92,7 +97,7 @@ def main():
         render(ROOT, state, hidden)
     else:
         needed = needs_publication(state, args.state_url)
-        print("Publication due" if needed else "No publication due; skipping build")
+        print("Site update due" if needed else "No site update due; skipping build")
         if "GITHUB_OUTPUT" in os.environ:
             with open(os.environ["GITHUB_OUTPUT"], "a") as output:
                 output.write(f"needed={str(needed).lower()}\n")

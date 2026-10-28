@@ -20,4 +20,17 @@ h2, h3 { font-weight: 600; }
 .navbar-brand { font-size: 1rem; font-weight: 600; white-space: normal; }
 main a { text-underline-offset: 0.2em; }
 a:focus-visible, button:focus-visible { outline: 3px solid #245fc2; outline-offset: 4px; }
+.reading-intro { font-size: .95rem; font-style: italic; margin: .75rem 0 1.25rem; }
+.reading-list { list-style: none; padding: 0; margin: 0; }
+.reading-item { padding: 1.4rem 0 1.6rem; border-top: 1px solid #dbe4ef; }
+.reading-item h2 { font-size: clamp(1.15rem, 2.4vw, 1.35rem); line-height: 1.4; margin: 0 0 .4rem; border: 0; padding: 0; }
+.reading-item h2 a { text-decoration-thickness: 1px; text-decoration-color: #b2c6e6; }
+.reading-meta { margin: 0; font-size: .85rem; color: #526174; }
+.reading-dates { display: grid; gap: .15rem; margin-top: .5rem; font-size: .85rem; color: #526174; }
+.reading-activity-date { font-size: .8rem; font-style: italic; }
+.content-excerpt { background: #f8faff; border: 1px solid #dbe4ef; border-radius: .5rem; padding: 1.25rem 1.5rem; }
+.content-excerpt .reading-item:first-child { border-top: 0; padding-top: 1rem; }
+.content-source { border-top: 1px solid #dbe4ef; padding-top: 1rem; font-size: .8rem; font-style: italic; color: #526174; }
+.content-source p { margin: 0; }
+@media (max-width: 575px) { .content-excerpt { padding: 1rem; } }
 @media (max-width: 575px) { h1 { font-size: 2rem; } .intro { margin-top: 1rem; } }

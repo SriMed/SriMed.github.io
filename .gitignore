@@ -11,3 +11,4 @@ __pycache__/
 
 **/*.quarto_ipynb
 /_quarto-publication.yml
+/_includes/reading.qmd

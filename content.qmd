@@ -1,0 +1,16 @@
+---
+title: "Content"
+toc: false
+---
+
+::: {.reading-intro}
+Selected highlights from a larger list of things I’m reading, watching, and listening to.
+:::
+
+::: {.content-excerpt}
+{{< include _includes/reading.qmd >}}
+
+::: {.content-source}
+From my Notion reading log · Daily sync planned
+:::
+:::

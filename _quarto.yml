@@ -15,6 +15,8 @@ website:
     left:
       - href: writing.qmd
         text: Writing
+      - href: content.qmd
+        text: Content
       - href: resume.pdf
         text: Résumé
       - href: https://github.com/SriMed
