@@ -11,6 +11,6 @@ Selected highlights from a larger list of things I’m reading, watching, and li
 {{< include _includes/reading.qmd >}}
 
 ::: {.content-source}
-From my Notion reading log · Daily sync planned
+From my Notion reading log · Updated daily
 :::
 :::
