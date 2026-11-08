@@ -19,6 +19,10 @@ h2, h3 { font-weight: 600; }
 .navbar { padding-top: 1rem; padding-bottom: 1rem; }
 .navbar-brand { font-size: 1rem; font-weight: 600; white-space: normal; }
 main a { text-underline-offset: 0.2em; }
+.contact-links { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; margin: 1.25rem 0 2rem; }
+.contact-links a { display: inline-flex; align-items: center; gap: .4rem; min-height: 2.75rem; font-size: .85rem; color: #526174; text-decoration: none; }
+.contact-links a:hover { color: $link-color; text-decoration: underline; }
+.contact-links svg { width: 1.05rem; height: 1.05rem; fill: currentColor; flex-shrink: 0; }
 a:focus-visible, button:focus-visible { outline: 3px solid #245fc2; outline-offset: 4px; }
 .reading-intro { font-size: .95rem; font-style: italic; margin: .75rem 0 1.25rem; }
 .reading-list { list-style: none; padding: 0; margin: 0; }
